@@ -68,14 +68,14 @@ class CreateOrderView(generics.CreateAPIView):
             item.product.stock -= item.quantity
             item.product.save()
 
-            OrderItem.objects.bulk_create(order_items)
+        OrderItem.objects.bulk_create(order_items)
 
-            cart_items.delete()
+        cart_items.delete()
 
-            serializer = self.get_serializer(order)
-            send_order_notification.delay(user.email)
+        serializer = self.get_serializer(order)
+        send_order_notification.delay(user.email)
 
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class OrderListView(generics.ListAPIView):
