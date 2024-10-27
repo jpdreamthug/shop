@@ -8,7 +8,6 @@ from orders.views import (
     CreateOrderView
 )
 
-
 urlpatterns = [
     path('cart/', CartItemListView.as_view(), name='cart-items'),
     path('cart/add/', AddToCartView.as_view(), name='cart-add'),
