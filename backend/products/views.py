@@ -1,7 +1,7 @@
 from rest_framework import generics, filters
 
-from products.models import Product
-from products.serializers import ProductDetailSerializer, ProductListSerializer
+from products.models import Product, Category
+from products.serializers import ProductDetailSerializer, ProductListSerializer, CategorySerializer
 
 
 class ProductListView(generics.ListAPIView):
@@ -18,3 +18,18 @@ class ProductDetailView(generics.RetrieveAPIView):
     serializer_class = ProductDetailSerializer
     permission_classes = []
     queryset = Product.objects.all()
+
+
+class CategoryListView(generics.ListAPIView):
+    serializer_class = CategorySerializer
+    permission_classes = []
+    queryset = Category.objects.all()
+
+
+class CategoryProductListView(generics.ListAPIView):
+    serializer_class = ProductListSerializer
+    permission_classes = []
+    
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        return Product.objects.filter(category_id=category_id)
