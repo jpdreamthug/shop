@@ -1,11 +1,11 @@
-// src/components/Header/Header.jsx
-import React from "react";
-import styles from "../styles/Header.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from '../styles/Header.module.css';
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1>Shop</h1>
+
     </header>
   );
 };

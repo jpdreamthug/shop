@@ -1,10 +1,11 @@
-import React from "react";
-import "../styles/Footer.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <p>&copy; 2024 Shop. All rights reserved.</p>
+    <footer className={styles.footer}>
+
     </footer>
   );
 };

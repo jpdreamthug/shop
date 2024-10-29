@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import styles from '../styles/Home.module.css';
 
-const Home = () => {
-  return <div>Home</div>;
+
+const HomePage = () => {
+
+  return (
+    <div className={styles.home}>
+      
+    </div>
+  );
 };
 
-export default Home;
+export default HomePage;
